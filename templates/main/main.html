@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="" href="{% static 'styleBlack.css' %}">
+    <link rel=”icon” href="{% static 'media/favicon.ico' %}" type=”images/x-icon”>
+    <title>Главная</title>
+</head>
+<body>
+<ul class="menu">
+    <img src="{% static 'media/SoapMainWhite.png' %}" alt="Soap Game Studio">
+</ul>
+<ul class="menu">
+
+   <li><a href="{% url 'main' %}">Главная</a></li>
+   <li><a href="{% url 'games' %}">Игры</a></li>
+   <li><a href="{% url 'contact' %}">Контакты</a></li>
+   <li><a href="{% url 'login' %}">Личный кабинет</a></li>
+</ul>
+
+{% if user.is_authenticated %}
+        <h1>Привет {{ user.username }}!</h1>
+      {% else %}
+        <p></p>
+      {% endif %}
+<p>Здесь будут публикации обновлений</p>
+</body>
+</html>

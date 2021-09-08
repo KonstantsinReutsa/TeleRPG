@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="" href="{% static 'styleBlack.css' %}">
+    <title>Личный кабинет</title>
+    <style type="text/css">
+ button {
+    border: 1px solid #060102;
+    border-radius: 7px;
+    padding: 20px 50px;
+    background: #202225;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+  }
+ </style>
+</head>
+<body>
+<ul class="menu">
+    <img src="{% static 'media/SoapMainWhite.png' %}" alt="Soap Game Studio">
+</ul>
+
+<ul class="menu">
+
+   <li><a href="{% url 'main' %}">Главная</a></li>
+   <li><a href="{% url 'games' %}">Игры</a></li>
+   <li><a href="{% url 'contact' %}">Контакты</a></li>
+   <li><a href="{% url 'login' %}">Личный кабинет</a></li>
+</ul>
+
+
+{% if user.is_authenticated %}
+        <h1>Личный кабинет {{ user.username }}</h1>
+
+    <ul class="buttonlogin">
+
+    <li><a href="{% url 'login' %}">Запустить бота</a></li>
+    <li><a href="{% url 'login' %}">Выключить бота</a></li>
+    </ul>
+
+      {% else %}
+
+    {% block content %}
+<h1>Log In</h1>
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+            <p align="center">
+        <button type="submit">Войти</button>
+            </p>
+        </form>
+    {% endblock content %}
+{% endif %}
+<br><br><br>
+{% if user.is_authenticated %}
+  <h1><a href="{% url 'logout' %}">Выход</a></h1>
+      {% else %}
+    <p align="center"> <a href="{% url 'signup' %}">Регистрация</a></p>
+      {% endif %}
+  </body>
+</html>

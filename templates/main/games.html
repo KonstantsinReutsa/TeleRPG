@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="" href="{% static 'styleBlack.css' %}">
+    <title>Игры</title>
+</head>
+<body>
+<ul class="menu">
+    <img src="{% static 'media/SoapMainWhite.png' %}" alt="Soap Game Studio">
+</ul>
+<ul class="menu">
+
+   <li><a href="{% url 'main' %}">Главная</a></li>
+   <li><a href="{% url 'games' %}">Игры</a></li>
+   <li><a href="{% url 'contact' %}">Контакты</a></li>
+   <li><a href="{% url 'login' %}">Личный кабинет</a></li>
+</ul>
+<p>
+<a href="{% url 'RPGame' %}">
+    <img class="tele" src="{% static 'media/telegram.png' %}" alt="TeleRPG">
+</a>
+    <p>РПГ бот телеграм</p>
+
+</body>
+</html>

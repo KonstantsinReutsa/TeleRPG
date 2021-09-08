@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="" href="{% static 'styleBlack.css' %}">
+    <title>Контакты</title>
+</head>
+<body>
+<ul class="menu">
+    <img src="{% static 'media/SoapMainWhite.png' %}" alt="Soap Game Studio">
+</ul>
+<ul class="menu">
+
+   <li><a href="{% url 'main' %}">Главная</a></li>
+   <li><a href="{% url 'games' %}">Игры</a></li>
+   <li><a href="{% url 'contact' %}">Контакты</a></li>
+   <li><a href="{% url 'login' %}">Личный кабинет</a></li>
+</ul>
+
+<h1>Контакты</h1>
+
+
+<p><a href="https://github.com/KonstantsinReutsa">GitHub</a></p>
+<p>Почта soapgamest@gmail.com</p>
+<p>Социальные сети</p>
+<ul class="contact">
+    <li><a href="https://t.me/kostya_reutsa">Телеграмм</a></li>
+    <li><a href="">Твиттер</a></li>
+    <li><a href="">Вконтакте</a></li>
+</ul>
+</body>
+</html>
